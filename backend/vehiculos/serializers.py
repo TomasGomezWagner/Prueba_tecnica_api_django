@@ -30,7 +30,7 @@ class FichaVehiculoSerializer(serializers.ModelSerializer):
 
 
 class TipoVehiculoSerializer(serializers.ModelSerializer):
-    """Serializador para mostrat info de tipo de vehiculo"""
+    """Serializador para manipular info de tipo de vehiculo"""
 
     class Meta:
         model = TipoVehiculo
@@ -38,7 +38,7 @@ class TipoVehiculoSerializer(serializers.ModelSerializer):
 
 
 class MarcaSerializer(serializers.ModelSerializer):
-    """Serializador para mostrar info de marca de vehiculo"""
+    """Serializador para manipular info de marca de vehiculo"""
 
     class Meta:
         model = Marca
