@@ -1,10 +1,13 @@
 from rest_framework import filters, generics  # authentication
 
-from .models import Vehiculo
+from .models import Vehiculo, TipoVehiculo, Marca, FichaVehiculo
 from .serializers import (
     VehiculoCreateSerializer,
     VehiculoDeleteUpdateSerializer,
     VehiculoDetailSerializer,
+    TipoVehiculoSerializer,
+    MarcaSerializer,
+    FichaVehiculoListCreateSerializer,
 )
 
 
@@ -84,3 +87,34 @@ class VehiculoListView(generics.ListAPIView):
 
 
 vehiculo_list_view = VehiculoListView.as_view()
+
+
+class TipoVehiculoListCreateView(generics.ListCreateAPIView):
+    queryset = TipoVehiculo.objects.all()
+    serializer_class = TipoVehiculoSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        return serializer.save()
+
+tipo_vehiculo_lis_create_view = TipoVehiculoListCreateView.as_view()
+
+class MarcaListCreateView(generics.ListCreateAPIView):
+    queryset = Marca.objects.all()
+    serializer_class = MarcaSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        return serializer.save()
+    
+marca_list_create_view = MarcaListCreateView.as_view()
+
+class FichaModeloListCreateView(generics.ListCreateAPIView):
+    queryset = FichaVehiculo.objects.all()
+    serializer_class = FichaVehiculoListCreateSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        return serializer.save()
+    
+ficha_vehiculo_list_create_view = FichaModeloListCreateView.as_view()
