@@ -1,13 +1,13 @@
-from rest_framework import filters, generics  # authentication
+from rest_framework import filters, generics, permissions  # , authentication
 
-from .models import Vehiculo, TipoVehiculo, Marca, FichaVehiculo
+from .models import FichaVehiculo, Marca, TipoVehiculo, Vehiculo
 from .serializers import (
+    FichaVehiculoListCreateSerializer,
+    MarcaSerializer,
+    TipoVehiculoSerializer,
     VehiculoCreateSerializer,
     VehiculoDeleteUpdateSerializer,
     VehiculoDetailSerializer,
-    TipoVehiculoSerializer,
-    MarcaSerializer,
-    FichaVehiculoListCreateSerializer,
 )
 
 
@@ -65,11 +65,6 @@ class VehiculoListView(generics.ListAPIView):
 
     queryset = Vehiculo.objects.all()
     serializer_class = VehiculoDetailSerializer
-    # authentication_classes = [
-    #     authentication.SessionAuthentication,
-    #     TokenAuthentication,
-    # ]
-    # permission_classes = [permissions.DjangoModelPermissions]
 
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     search_fields = ["tipo__descripcion"]
@@ -97,7 +92,9 @@ class TipoVehiculoListCreateView(generics.ListCreateAPIView):
         print(serializer)
         return serializer.save()
 
+
 tipo_vehiculo_lis_create_view = TipoVehiculoListCreateView.as_view()
+
 
 class MarcaListCreateView(generics.ListCreateAPIView):
     queryset = Marca.objects.all()
@@ -106,8 +103,10 @@ class MarcaListCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         print(serializer)
         return serializer.save()
-    
+
+
 marca_list_create_view = MarcaListCreateView.as_view()
+
 
 class FichaVehiculoListCreateView(generics.ListCreateAPIView):
     queryset = FichaVehiculo.objects.all()
@@ -116,5 +115,6 @@ class FichaVehiculoListCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         print(serializer)
         return serializer.save()
-    
+
+
 ficha_vehiculo_list_create_view = FichaVehiculoListCreateView.as_view()
