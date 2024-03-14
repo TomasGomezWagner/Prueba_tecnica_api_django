@@ -70,8 +70,8 @@ class VehiculoListView(generics.ListAPIView):
 
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     search_fields = ["tipo__descripcion"]
-    ordering_fields = ["year", "valor"]
-    ordering = ["year"]
+    ordering_fields = ["anio", "precio"]
+    ordering = ["anio"]
 
     def get_queryset(self):
         queryset = Vehiculo.objects.all()
@@ -81,3 +81,6 @@ class VehiculoListView(generics.ListAPIView):
             queryset = queryset.filter(tipo_modelo__descripcion=tipo_param)
 
         return queryset
+
+
+vehiculo_list_view = VehiculoListView.as_view()
