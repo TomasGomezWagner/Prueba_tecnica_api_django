@@ -81,7 +81,7 @@ class VehiculoListView(generics.ListAPIView):
         tipo_param = self.request.query_params.get("tipo", None)
 
         if tipo_param is not None:
-            queryset = queryset.filter(tipo_modelo__descripcion=tipo_param)
+            queryset = queryset.filter(tipo__descripcion=tipo_param)
 
         return queryset
 
@@ -109,7 +109,7 @@ class MarcaListCreateView(generics.ListCreateAPIView):
     
 marca_list_create_view = MarcaListCreateView.as_view()
 
-class FichaModeloListCreateView(generics.ListCreateAPIView):
+class FichaVehiculoListCreateView(generics.ListCreateAPIView):
     queryset = FichaVehiculo.objects.all()
     serializer_class = FichaVehiculoListCreateSerializer
 
@@ -117,4 +117,4 @@ class FichaModeloListCreateView(generics.ListCreateAPIView):
         print(serializer)
         return serializer.save()
     
-ficha_vehiculo_list_create_view = FichaModeloListCreateView.as_view()
+ficha_vehiculo_list_create_view = FichaVehiculoListCreateView.as_view()
