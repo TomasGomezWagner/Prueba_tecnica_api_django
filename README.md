@@ -11,7 +11,7 @@ API realizada con Django REST framework para acceder a datos de vehiculos.
 - Acceder a la carpeta backend.  
 - Ejecutar el comando: ```python manage.py migrate```. Esto generara la base de datos (sqlite3) y las migraciones necesarias
 para poder ejectutar la aplicacion.
-- Los datos pueden ser generados o descargar [base de datos]() y reemplazar por la generada en el paso anterior.
+- Los datos pueden ser generados o descargar [base de datos](https://drive.google.com/file/d/143exuw3TnX04nXNLXviXwMLa9KhDHv9r/view?usp=sharing) y reemplazar por la generada en el paso anterior.
 - Ejecutar la aplicacion: ```python manage.py runserver```. Esto por defecto habilita la aplicacion en la ruta ```.http://127.0.0.1:8000/```.
 - Si se elije crear los datos:
     - Crear superuser: ```python manage.py createsuperuser```(seguir los pasos que pide)
