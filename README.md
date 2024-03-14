@@ -1,6 +1,8 @@
 # Prueba_tecnica_api_django
 API realizada con Django REST framework para acceder a datos de vehiculos.
 
+(Solo se guardan los nombres de las imagenes en la base de datos)
+
 ## Version Python
 3.11.4
 
