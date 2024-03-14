@@ -23,7 +23,7 @@ class FichaVehiculoSerializer(serializers.ModelSerializer):
             "titulo2",
             "descrip2",
             "img_2",
-            "titulo2",
+            "titulo3",
             "descrip3",
             "img_3",
         ]
