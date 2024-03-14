@@ -1,4 +1,4 @@
-from rest_framework import authentication, filters, generics
+from rest_framework import filters, generics  # authentication
 
 from .models import Vehiculo
 from .serializers import (
@@ -62,10 +62,10 @@ class VehiculoListView(generics.ListAPIView):
 
     queryset = Vehiculo.objects.all()
     serializer_class = VehiculoDetailSerializer
-    authentication_classes = [
-        authentication.SessionAuthentication,
-        # TokenAuthentication,
-    ]
+    # authentication_classes = [
+    #     authentication.SessionAuthentication,
+    #     TokenAuthentication,
+    # ]
     # permission_classes = [permissions.DjangoModelPermissions]
 
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]
